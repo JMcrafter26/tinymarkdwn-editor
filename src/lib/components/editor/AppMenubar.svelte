@@ -28,17 +28,34 @@
 			setOpen(true);
 		};
 	}
+
+
+	const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.platform);
+	const mod = isMac ? '⌘' : 'Ctrl';
+	const alt = isMac ? '⌥' : 'Alt';
+
+	const shortcuts = [
+		{ keys: [mod,alt, 'N'], action: 'New file' },
+		{ keys: [mod,alt, 'O'], action: 'Open file' },
+		{ keys: [mod, 'S'], action: 'Save' },
+		{ keys: [mod,alt, 'S'], action: 'Save As' },
+		{ keys: [mod,alt, 'W'], action: 'Close tab' },
+		{ keys: [mod,alt, '←/→'], action: 'Switch tabs' },
+		{ keys: [mod,alt, '1-9'], action: 'Jump to tab' },
+		{ keys: [mod, 'Z', '⇧+Z'], action: 'Undo / redo (native, while editing)' },
+		{ keys: [mod, 'X', 'C', 'V'], action: 'Cut / copy / paste (native, while editing)' }
+	];
 </script>
 
 <Menubar.Root class="rounded-none border-x-0 border-t-0 px-2">
 	<Menubar.Menu>
 		<Menubar.Trigger>File</Menubar.Trigger>
 		<Menubar.Content>
-			<Menubar.Item onSelect={newFile}>New File <Menubar.Shortcut>⌘⌥N</Menubar.Shortcut></Menubar.Item>
-			<Menubar.Item onSelect={openFile}>Open File... <Menubar.Shortcut>⌘⌥O</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={newFile}>New File <Menubar.Shortcut>{shortcuts[0].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={openFile}>Open File... <Menubar.Shortcut>{shortcuts[1].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Separator />
-			<Menubar.Item onSelect={saveActiveTab}>Save <Menubar.Shortcut>⌘S</Menubar.Shortcut></Menubar.Item>
-			<Menubar.Item onSelect={saveActiveTabAs}>Save As... <Menubar.Shortcut>⌘⌥S</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={saveActiveTab}>Save <Menubar.Shortcut>{shortcuts[2].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={saveActiveTabAs}>Save As... <Menubar.Shortcut>{shortcuts[3].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Sub>
 				<Menubar.SubTrigger>Export</Menubar.SubTrigger>
 				<Menubar.SubContent>
@@ -47,7 +64,7 @@
 				</Menubar.SubContent>
 			</Menubar.Sub>
 			<Menubar.Separator />
-			<Menubar.Item onSelect={closeActiveTab}>Close Tab <Menubar.Shortcut>⌘⌥W</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={closeActiveTab}>Close Tab <Menubar.Shortcut>{shortcuts[4].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Separator />
 			<Menubar.CheckboxItem
 				checked={tabsStore.incognito}
@@ -61,12 +78,12 @@
 	<Menubar.Menu>
 		<Menubar.Trigger>Edit</Menubar.Trigger>
 		<Menubar.Content>
-			<Menubar.Item onSelect={undoActiveTab}>Undo <Menubar.Shortcut>⌘Z</Menubar.Shortcut></Menubar.Item>
-			<Menubar.Item onSelect={redoActiveTab}>Redo <Menubar.Shortcut>⇧⌘Z</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={undoActiveTab}>Undo <Menubar.Shortcut>{shortcuts[6].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={redoActiveTab}>Redo <Menubar.Shortcut>{shortcuts[7].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Separator />
-			<Menubar.Item onSelect={cutSelection}>Cut <Menubar.Shortcut>⌘X</Menubar.Shortcut></Menubar.Item>
-			<Menubar.Item onSelect={copySelection}>Copy <Menubar.Shortcut>⌘C</Menubar.Shortcut></Menubar.Item>
-			<Menubar.Item onSelect={pasteClipboard}>Paste <Menubar.Shortcut>⌘V</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={cutSelection}>Cut <Menubar.Shortcut>{shortcuts[8].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={copySelection}>Copy <Menubar.Shortcut>{shortcuts[8].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={pasteClipboard}>Paste <Menubar.Shortcut>{shortcuts[8].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 		</Menubar.Content>
 	</Menubar.Menu>
 

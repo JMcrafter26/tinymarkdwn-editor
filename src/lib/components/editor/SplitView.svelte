@@ -3,11 +3,18 @@
 	import EditorPane from './EditorPane.svelte';
 	import PreviewPane from './PreviewPane.svelte';
 	import { settingsStore } from '$lib/stores/settings.svelte';
+	import { useIsMobile } from '$lib/hooks/is-mobile.svelte';
+
+	const isMobile = useIsMobile();
+
+	let effectiveMode = $derived(
+		isMobile.current && settingsStore.viewMode === 'split' ? 'editor' : settingsStore.viewMode
+	);
 </script>
 
-{#if settingsStore.viewMode === 'editor'}
+{#if effectiveMode === 'editor'}
 	<div class="h-full"><EditorPane /></div>
-{:else if settingsStore.viewMode === 'preview'}
+{:else if effectiveMode === 'preview'}
 	<div class="h-full"><PreviewPane /></div>
 {:else}
 	<Resizable.PaneGroup direction="horizontal" class="h-full">

@@ -4,6 +4,10 @@
 	import SplitView from '$lib/components/editor/SplitView.svelte';
 	import { tabsStore } from '$lib/stores/tabs.svelte';
 	import { newFile, openFile, saveActiveTab, saveActiveTabAs, closeActiveTab } from '$lib/actions/editor-actions';
+	import MobileViewSwitch from '$lib/components/editor/MobileViewSwitch.svelte';
+	import { useIsMobile } from '$lib/hooks/is-mobile.svelte';
+
+	const isMobile = useIsMobile();
 
 	function handleKeydown(e: KeyboardEvent) {
 		const mod = e.metaKey || e.ctrlKey;
@@ -52,11 +56,15 @@
 	}
 </script>
 
+
 <svelte:window onkeydown={handleKeydown} onbeforeunload={handleBeforeUnload} />
 
-<div class="flex h-screen flex-col overflow-hidden">
+<div class="flex h-dvh flex-col overflow-hidden [padding-bottom:env(safe-area-inset-bottom)]">
 	<AppMenubar />
 	<TabBar />
+	{#if isMobile.current}
+		<MobileViewSwitch />
+	{/if}
 	<main class="min-h-0 flex-1">
 		<SplitView />
 	</main>

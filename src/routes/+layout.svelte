@@ -2,6 +2,9 @@
 	import './app.css';
 	import { ModeWatcher } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner/index.js';
+	import { provideIsMobile } from '$lib/hooks/is-mobile.svelte';
+
+	provideIsMobile();
 
 	let { children } = $props();
 </script>

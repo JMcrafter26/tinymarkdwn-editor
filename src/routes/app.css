@@ -128,3 +128,10 @@
 		@apply font-sans;
 	}
 }
+
+
+/* removes the tap-delay/ghost-click quirks on touch, and stops accidental
+   pinch/double-tap zoom on our own controls (the page itself stays zoomable) */
+button, [role='button'] {
+	touch-action: manipulation;
+}

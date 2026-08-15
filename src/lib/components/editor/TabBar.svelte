@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { tabsStore } from '$lib/stores/tabs.svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
-  import { Input } from "$lib/components/ui/input/index.js";
+ 	import { Input } from "$lib/components/ui/input/index.js";
   	import { cn } from '$lib/utils.js';
 	import PlusIcon from '@lucide/svelte/icons/plus';
 	import XIcon from '@lucide/svelte/icons/x';
+	import { useIsMobile } from '$lib/hooks/is-mobile.svelte';
+	const isMobile = useIsMobile();
 
 	let scrollEl: HTMLDivElement | undefined = $state();
 	let overflowing = $state(false);
@@ -78,7 +80,7 @@
 			{@const isActive = tab.id === tabsStore.activeId}
 			<div
 				data-tab-id={tab.id}
-				draggable="true"
+				draggable={!isMobile.current}
 				ondragstart={(e) => {
 					draggingId = tab.id;
 					e.dataTransfer?.setData('text/plain', tab.id);
@@ -131,10 +133,7 @@
 					<button
 						tabindex={-1}
 						aria-label="Close tab"
-						onclick={(e) => {
-							e.stopPropagation();
-							tabsStore.closeTab(tab.id);
-						}}
+						onclick={(e) => { e.stopPropagation(); tabsStore.closeTab(tab.id); }}
 						class={cn(
 							'rounded p-0.5 opacity-0 group-hover:opacity-100',
 							isActive ? 'hover:bg-primary-foreground/20 opacity-100' : 'hover:bg-muted-foreground/20'
