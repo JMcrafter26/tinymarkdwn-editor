@@ -98,6 +98,7 @@
 				<Menubar.RadioItem value="preview">Preview Only</Menubar.RadioItem>
 			</Menubar.RadioGroup>
 			<Menubar.Separator />
+			<Menubar.CheckboxItem bind:checked={settingsStore.disableAnimations}>Disable Animations</Menubar.CheckboxItem>
 			<Menubar.Sub>
 				<Menubar.SubTrigger>Theme</Menubar.SubTrigger>
 				<Menubar.SubContent>

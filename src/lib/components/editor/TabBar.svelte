@@ -6,6 +6,7 @@
 	import PlusIcon from '@lucide/svelte/icons/plus';
 	import XIcon from '@lucide/svelte/icons/x';
 	import { useIsMobile } from '$lib/hooks/is-mobile.svelte';
+	import { animate } from '$lib/utils/actions.svelte';
 	const isMobile = useIsMobile();
 
 	let scrollEl: HTMLDivElement | undefined = $state();
@@ -74,6 +75,7 @@
 		ondblclick={handleBarDblClick}
 		role="tablist"
 		tabindex={0}
+		use:animate={{ duration: 100 }}
 		class="flex flex-1 items-center gap-1 overflow-x-auto [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-muted-foreground/30"
 	>
 		{#each tabsStore.tabs as tab (tab.id)}
