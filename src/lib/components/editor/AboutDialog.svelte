@@ -5,19 +5,37 @@
 </script>
 
 <Dialog.Root bind:open>
-	<Dialog.Content class="sm:max-w-md">
+	<Dialog.Content class="sm:max-w-lg">
 		<Dialog.Header>
-			<Dialog.Title>About this editor</Dialog.Title>
+			<Dialog.Title>About TinyMarkdwn Editor</Dialog.Title>
 			<Dialog.Description>
-				A small split-view markdown editor built with SvelteKit, shadcn-svelte, and uses <a href="https://github.com/JMcrafter26/tinymarkdwn/" target="_blank" rel="noopener noreferrer" class="text-primary underline">tinymarkdwn</a>, a tiny but powerful markdown parser under the hood.<br/>It supports tables, code blocks, checkboxes, and more.
+				A lightweight split-view markdown editor built with SvelteKit and shadcn-svelte, powered by
+				<a
+					href="https://github.com/JMcrafter26/tinymarkdwn/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-primary underline"
+				>
+					tinymarkdwn
+				</a>
+				for fast markdown parsing.
 			</Dialog.Description>
 		</Dialog.Header>
-		<div class="space-y-2 text-sm text-muted-foreground">
-			<p>
-				Everything you write is saved to this browser automatically, unless Incognito is turned
-				on in the File menu.
+
+			<p class="text-muted-foreground">
+				Your notes are auto-saved in this browser unless Incognito mode is enabled from the File menu.
+				Use File -> Open / Save to work with files on disk where your browser supports it.
 			</p>
-			<p>Use File → Open / Save to work with real files on disk, where your browser supports it.</p>
-		</div>
+
+		<Dialog.Footer class="sm:justify-between" showCloseButton={true}>
+			<a
+				href="https://github.com/JMcrafter26/tinymarkdwn-editor"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-sm text-primary underline"
+			>
+				View editor source
+			</a>
+		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>
