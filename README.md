@@ -1,8 +1,10 @@
-# Tinymark
+# TinyMarkdwn Editor
 
-Tinymark is a lightweight markdown editor for writing, previewing, and exporting notes in the browser. It is built with SvelteKit and uses the [tinymarkdwn](https://github.com/JMcrafter26/tinymarkdwn) parser to render Markdown into HTML without needing a heavy app or a separate service.
+TinyMarkdwn is a lightweight markdown editor for writing, previewing, and exporting notes in the browser. It is built with SvelteKit and uses the [tinymarkdwn](https://github.com/JMcrafter26/tinymarkdwn) parser to render Markdown into HTML without needing a heavy app or a separate service.
 
 The interface is intentionally simple: a tabbed editor, a live preview pane, keyboard shortcuts, and file actions that feel close to a desktop writing app while still being easy to run locally.
+
+
 
 ## Features
 
@@ -14,6 +16,8 @@ The interface is intentionally simple: a tabbed editor, a live preview pane, key
 - Dark and light theme support
 - Word wrap controls and a mobile-friendly layout
 - Incognito mode for temporary, non-persistent editing sessions
+
+![Built with SvelteKit](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/sveltekit/cozy.svg) ![Built with Tailwind css](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/tailwindcss/cozy-minimal.svg) [![Featured on FMHY](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/available/fmhy/cozy-minimal.svg)](https://fmhy.net/?q=tinymarkdwn)
 
 ## Getting started
 
