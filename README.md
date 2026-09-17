@@ -4,7 +4,7 @@ TinyMarkdwn is a lightweight markdown editor for writing, previewing, and export
 
 The interface is intentionally simple: a tabbed editor, a live preview pane, keyboard shortcuts, and file actions that feel close to a desktop writing app while still being easy to run locally.
 
-
+[![Deployed on GitHub Pages](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/github-pages/compact.svg)](https://jmcrafter26.github.io/tinymarkdwn-editor/) [![Featured on FMHY](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/available/fmhy/compact.svg)](https://fmhy.net/?q=tinymarkdwn)
 
 ## Features
 
@@ -17,7 +17,7 @@ The interface is intentionally simple: a tabbed editor, a live preview pane, key
 - Word wrap controls and a mobile-friendly layout
 - Incognito mode for temporary, non-persistent editing sessions
 
-![Built with SvelteKit](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/sveltekit/cozy.svg) ![Built with Tailwind css](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/tailwindcss/cozy-minimal.svg) [![Featured on FMHY](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/available/fmhy/cozy-minimal.svg)](https://fmhy.net/?q=tinymarkdwn)
+![Built with SvelteKit](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/sveltekit/compact.svg) ![Built with Tailwind css](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/tailwindcss/compact-minimal.svg) ![Built with TypeScript](https://cdn.jsdelivr.net/gh/JMcrafter26/badges@main/src/assets/built-with/typescript/compact-minimal.svg)
 
 ## Getting started
 
