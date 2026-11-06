@@ -75,7 +75,7 @@
 		ondblclick={handleBarDblClick}
 		role="tablist"
 		tabindex={0}
-		use:animate={{ duration: 100 }}
+		use:animate={{ duration: 140 }}
 		class="flex flex-1 items-center gap-1 overflow-x-auto [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-muted-foreground/30"
 	>
 		{#each tabsStore.tabs as tab (tab.id)}
