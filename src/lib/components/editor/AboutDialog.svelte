@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
+	import packageJson from '../../../../package.json';
 
 	let { open = $bindable(false) }: { open?: boolean } = $props();
 </script>
@@ -26,6 +27,8 @@
 				Your notes are auto-saved in this browser unless Incognito mode is enabled from the File menu.
 				Use File -> Open / Save to work with files on disk where your browser supports it.
 			</p>
+			<p class="text-sm text-muted-foreground">Version {packageJson.version}</p>
+
 
 		<Dialog.Footer class="sm:justify-between" showCloseButton={true}>
 			<a
