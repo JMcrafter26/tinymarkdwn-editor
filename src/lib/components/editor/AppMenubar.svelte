@@ -43,7 +43,9 @@
 		{ keys: [mod,alt, '←/→'], action: 'Switch tabs' },
 		{ keys: [mod,alt, '1-9'], action: 'Jump to tab' },
 		{ keys: [mod, 'Z', '⇧+Z'], action: 'Undo / redo (native, while editing)' },
-		{ keys: [mod, 'X', 'C', 'V'], action: 'Cut / copy / paste (native, while editing)' }
+		{ keys: [mod, 'X'], action: 'Cut (native, while editing)' },
+		{ keys: [mod, 'C'], action: 'Copy (native, while editing)' },
+		{ keys: [mod, 'V'], action: 'Paste (native, while editing)' },
 	];
 </script>
 
@@ -82,8 +84,8 @@
 			<Menubar.Item onSelect={redoActiveTab}>Redo <Menubar.Shortcut>{shortcuts[7].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Separator />
 			<Menubar.Item onSelect={cutSelection}>Cut <Menubar.Shortcut>{shortcuts[8].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
-			<Menubar.Item onSelect={copySelection}>Copy <Menubar.Shortcut>{shortcuts[8].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
-			<Menubar.Item onSelect={pasteClipboard}>Paste <Menubar.Shortcut>{shortcuts[8].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={copySelection}>Copy <Menubar.Shortcut>{shortcuts[9].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
+			<Menubar.Item onSelect={pasteClipboard}>Paste <Menubar.Shortcut>{shortcuts[10].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 		</Menubar.Content>
 	</Menubar.Menu>
 
