@@ -12,33 +12,34 @@
 	function handleKeydown(e: KeyboardEvent) {
 		const mod = e.metaKey || e.ctrlKey;
 		if (!mod) return;
+		const key = e.code;
 
 		// Ctrl/Cmd+N, +W, +Tab and +1..8 are reserved by every major browser for its own
 		// tab/window chrome and never reach page JS — so app-level shortcuts use +Alt instead.
-		if (e.altKey && e.key.toLowerCase() === 'n') {
+		if (e.altKey && key === 'KeyN' || e.altKey && key === 'KeyT') {
 			e.preventDefault();
 			newFile();
-		} else if (e.altKey && e.key.toLowerCase() === 'o') {
+		} else if (e.altKey && key === 'KeyO') {
 			e.preventDefault();
 			openFile();
-		} else if (e.altKey && e.key.toLowerCase() === 's') {
+		} else if (e.altKey && key === 'KeyS') {
 			e.preventDefault();
 			saveActiveTabAs();
-		} else if (!e.altKey && e.key.toLowerCase() === 's') {
+		} else if (!e.altKey && key === 'KeyS') {
 			e.preventDefault();
 			saveActiveTab();
-		} else if (e.altKey && e.key.toLowerCase() === 'w') {
+		} else if (e.altKey && key === 'KeyW') {
 			e.preventDefault();
 			closeActiveTab();
-		} else if (e.altKey && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) {
+		} else if (e.altKey && (key === 'ArrowRight' || key === 'ArrowLeft')) {
 			e.preventDefault();
 			const tabs = tabsStore.tabs;
 			if (tabs.length < 2) return;
 			const idx = tabs.findIndex((t) => t.id === tabsStore.activeId);
-			const dir = e.key === 'ArrowRight' ? 1 : -1;
+			const dir = key === 'ArrowRight' ? 1 : -1;
 			tabsStore.selectTab(tabs[(idx + dir + tabs.length) % tabs.length].id);
-		} else if (e.altKey && e.key >= '1' && e.key <= '9') {
-			const tab = tabsStore.tabs[Number(e.key) - 1];
+		} else if (e.altKey && /^Digit[1-9]$/.test(key)) {
+			const tab = tabsStore.tabs[Number(key.slice(-1)) - 1];
 			if (tab) {
 				e.preventDefault();
 				tabsStore.selectTab(tab.id);

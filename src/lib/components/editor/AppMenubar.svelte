@@ -50,9 +50,9 @@
 </script>
 
 <Menubar.Root class="rounded-none border-x-0 border-t-0 px-2">
-	<Menubar.Menu>
+	<Menubar.Menu class="select-none">
 		<Menubar.Trigger>File</Menubar.Trigger>
-		<Menubar.Content>
+		<Menubar.Content class="select-none">
 			<Menubar.Item onSelect={newFile}>New File <Menubar.Shortcut>{shortcuts[0].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Item onSelect={openFile}>Open File... <Menubar.Shortcut>{shortcuts[1].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Separator />
@@ -77,9 +77,9 @@
 		</Menubar.Content>
 	</Menubar.Menu>
 
-	<Menubar.Menu>
+	<Menubar.Menu class="select-none">
 		<Menubar.Trigger>Edit</Menubar.Trigger>
-		<Menubar.Content>
+		<Menubar.Content class="select-none">
 			<Menubar.Item onSelect={undoActiveTab}>Undo <Menubar.Shortcut>{shortcuts[6].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Item onSelect={redoActiveTab}>Redo <Menubar.Shortcut>{shortcuts[7].keys.join(' ')}</Menubar.Shortcut></Menubar.Item>
 			<Menubar.Separator />
@@ -89,9 +89,9 @@
 		</Menubar.Content>
 	</Menubar.Menu>
 
-	<Menubar.Menu>
+	<Menubar.Menu class="select-none">
 		<Menubar.Trigger>View</Menubar.Trigger>
-		<Menubar.Content>
+		<Menubar.Content class="select-none">
 			<Menubar.CheckboxItem bind:checked={settingsStore.wordWrap}>Word Wrap</Menubar.CheckboxItem>
 			<Menubar.Separator />
 			<Menubar.RadioGroup bind:value={settingsStore.viewMode}>
@@ -114,9 +114,9 @@
 		</Menubar.Content>
 	</Menubar.Menu>
 
-	<Menubar.Menu>
+	<Menubar.Menu class="select-none">
 		<Menubar.Trigger>Help</Menubar.Trigger>
-		<Menubar.Content>
+		<Menubar.Content class="select-none">
 			<Menubar.Item onSelect={openDialog((v) => (shortcutsOpen = v))}>Keyboard Shortcuts</Menubar.Item>
 			<Menubar.Item onSelect={openDialog((v) => (aboutOpen = v))}>About</Menubar.Item>
 		</Menubar.Content>
